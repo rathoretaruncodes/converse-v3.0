@@ -1,7 +1,7 @@
 import express from "express";
 const router = express.Router();
 
-router.get("/conversation", (req,res) => {
+router.get("/conversations", (req,res) => {
     res.send("conversation route.")
 })
 
