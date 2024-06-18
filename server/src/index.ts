@@ -5,6 +5,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
+//Parsing application/json
+app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/message", messageRoutes);
