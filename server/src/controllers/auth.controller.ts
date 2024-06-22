@@ -2,10 +2,18 @@ import { Request, Response } from "express";
 import prisma from "../db/prisma";
 import bcryptjs from "bcryptjs";
 import generateToken from "../utils/generateToken";
+import { z } from "zod";
 
+const signupBody = z.object({
+    fullName: z.string().trim().min(1, "Full Name is required."),
+    username: z.string().trim().min(3, "Username must be of at least 3 characters."),
+    password: z.string().trim().min(6, "Password must be of at least 6 characters."),
+    confirmPassword: z.string().trim(),
+    gender: z.enum(["male", "female"])
+})
 export const signup = async (req:Request, res:Response) => {
     try {
-        const { fullName, username, password, confirmPassword, gender } = req.body;
+        const { fullName, username, password, confirmPassword, gender } = signupBody.parse(req.body);
         if (!fullName || !username || !password || !confirmPassword || !gender) {
             return res.status(400).json({
                 error: "Please fill in all fields."
@@ -66,9 +74,14 @@ export const signup = async (req:Request, res:Response) => {
     }
 }
 
+const loginBody = z.object({
+    username: z.string().trim().min(3, "Username must be of at least 3 characters."),
+    password: z.string().trim().min(6, "Password must be of at least 6 characters."),
+})
+
 export const login = async (req:Request, res:Response) => {
     try {
-        const { username, password } = req.body;
+        const { username, password } = loginBody.parse(req.body);
         const user = await prisma.user.findUnique({
             where: { username }
         });
