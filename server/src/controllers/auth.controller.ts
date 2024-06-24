@@ -67,7 +67,7 @@ export const signup = async (req:Request, res:Response) => {
             })
         }
     } catch (error: any) {
-        console.log("Error in signup controller", error.message);
+        console.error("Error in signup controller", error.message);
         res.status(500).json({
             error: "Internal server error."
         });
@@ -104,7 +104,7 @@ export const login = async (req:Request, res:Response) => {
             profilePicture: user.profilePicture,
         });
     } catch (error: any) {
-        console.log("Error in login controller.", error.message);
+        console.error("Error in login controller.", error.message);
         res.status(500).json({
             error: "Internal server error."
         });
@@ -118,7 +118,7 @@ export const logout = async (req:Request, res:Response) => {
             message: "Logged Out succussfully."
         });
     } catch (error: any) {
-        console.log("Error in Logout controller", error.message);
+        console.error("Error in Logout controller", error.message);
         res.status(500).json({
             error: "Internal server error."
         });
@@ -142,7 +142,7 @@ export const getMe = async (req:Request, res:Response) => {
             profilePicture: user.profilePicture,
         });
     } catch (error:any) {
-        console.log("Error", error.message);
+        console.error("Error", error.message);
         res.status(500).json({
             error: "Internal server error."
         });
