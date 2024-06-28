@@ -1,8 +1,13 @@
 import { Video, X } from "lucide-react";
-import Messages from "./messages";
+import { sample_messages } from "../../sample-data/sample-data";
+import Message from "./message";
+import ChatPlaceholder from "./chat-placeholder";
 
 
 const RightPanel = () => {
+    const selectedConversation = {};
+    if (!selectedConversation) 
+        return <ChatPlaceholder />
     const conversationName = "John Doe";
     return (
         <>
@@ -28,7 +33,9 @@ const RightPanel = () => {
                         <X size={20} className="cursor-pointer text-gray-500" />
                     </div>
                 </div>
-                <Messages />
+                {sample_messages.map((message) => (
+                <Message key={message.id} message={message} />
+            ))}
             </div>
         </div>
         
@@ -37,3 +44,4 @@ const RightPanel = () => {
 }
 
 export default RightPanel;
+

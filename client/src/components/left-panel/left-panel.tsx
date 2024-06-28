@@ -5,8 +5,8 @@ import {
     MessageSquareDiff, 
     Search 
 } from "lucide-react";
-import Conversations from "./conversations";
-
+import { sample_conversations } from "../../sample-data/sample-data";
+import Conversation from "./conversation";
 
 
 const LeftPanel = () => {
@@ -32,8 +32,10 @@ const LeftPanel = () => {
                     </div>
                 </div>
                 {/* Chat */}
-                <div className="my-4 flex flex-col gap-0 max-h-[80%] overflow-auto text-white">
-                    <Conversations />
+                <div className="my-4 py-2 flex flex-col overflow-auto text-white">
+                    {sample_conversations.map((conversation) => (
+                        <Conversation key={conversation.id} conversation={conversation} />
+                    ))}
                 </div>
             </div>
         </div>
