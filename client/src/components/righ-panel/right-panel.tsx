@@ -1,9 +1,11 @@
 import { Video, X } from "lucide-react";
+import Messages from "./messages";
 
 
 const RightPanel = () => {
     const conversationName = "John Doe";
     return (
+        <>
         <div className="w-3/4 flex flex-col">
             <div className="sticky top-0 z-10">
                 <div className="flex justify-between bg-gray-800">
@@ -13,7 +15,7 @@ const RightPanel = () => {
                                 <img className="w-9 h-9 rounded-full" src="https://github.com/shadcn.png" alt="avatar-image"/>
                                 <span className="top-0 left-7 absolute  w-3 h-3 bg-green-400 border-2 border-black rounded-full"></span>
                             </div>
-                            <div className="flex flex-col text-white">
+                            <div className="flex flex-col text-white font-bold">
                                 <p>{conversationName}</p>
                             </div>
                         </div>
@@ -26,8 +28,11 @@ const RightPanel = () => {
                         <X size={20} className="cursor-pointer text-gray-500" />
                     </div>
                 </div>
+                <Messages />
             </div>
         </div>
+        
+        </>
     )
 }
 

@@ -5,10 +5,11 @@ import {
     MessageSquareDiff, 
     Search 
 } from "lucide-react";
+import Conversations from "./conversations";
+
 
 
 const LeftPanel = () => {
-    const conversations = [];
     return (
         <div className="w-1/4 border-gray-600 border-r">
             <div className="sticky top-0 z-10">
@@ -24,20 +25,15 @@ const LeftPanel = () => {
                     </div>
                     
                     <div className="p-3 flex items-center">
-                        <div className="relative h-10 mx-2 flex-1">
-                            <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-500" size={14} />
-                            <input type="text" placeholder="Search chats" className="pl-7 py-2.5 text-sm w-full rounded bg-gray focus:outline-none"></input>
+                        <div className="relative h-3 mt-1 flex-1">
+                            <Search className="absolute left-2.5 top-2.5 text-gray-500" size={14} />
+                            <input type="text" placeholder="Search chats" className="pl-7 py-1 w-full rounded focus:outline-none" />
                         </div>
                     </div>
                 </div>
                 {/* Chat */}
-                <div className="my-4 flex flex-col gap-0 max-h-[80%] overflow-auto">
-
-                    {conversations?.length === 0 && ( 
-                        <>
-                            <p className="text-center text-sm mt-3 text-gray-500">Be the first to break the ice!</p>
-                        </>
-                     )} 
+                <div className="my-4 flex flex-col gap-0 max-h-[80%] overflow-auto text-white">
+                    <Conversations />
                 </div>
             </div>
         </div>

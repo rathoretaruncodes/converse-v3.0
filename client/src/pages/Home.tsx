@@ -1,5 +1,5 @@
-import LeftPanel from "../components/left-panel";
-import RightPanel from "../components/right-panel";
+import LeftPanel from "../components/left-panel/left-panel";
+import RightPanel from "../components/righ-panel/right-panel";
 
 
 const Home = () => {
