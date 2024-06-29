@@ -2,6 +2,7 @@ import { Video, X } from "lucide-react";
 import { sample_messages } from "../../sample-data/sample-data";
 import Message from "./message";
 import ChatPlaceholder from "./chat-placeholder";
+import MessageInput from "./message-input";
 
 
 const RightPanel = () => {
@@ -11,7 +12,7 @@ const RightPanel = () => {
     const conversationName = "John Doe";
     return (
         <>
-        <div className="w-3/4 flex flex-col">
+        <div className="w-3/4 flex flex-col justify-between">
             <div className="sticky top-0 z-10">
                 <div className="flex justify-between bg-gray-800">
                     <div className="flex justify-between items-center h-16 px-4">
@@ -34,11 +35,11 @@ const RightPanel = () => {
                     </div>
                 </div>
                 {sample_messages.map((message) => (
-                <Message key={message.id} message={message} />
-            ))}
+                    <Message key={message.id} message={message} />
+                ))}
             </div>
+            <MessageInput />
         </div>
-        
         </>
     )
 }

@@ -16,7 +16,6 @@ const Conversation = ({ conversation } : { conversation: conversationType }) => 
                 <div className="flex flex-col flex-1">
                     <div className="flex gap-3 justify-between">
                         <p className="font-bold">{conversation.fullName}</p>
-                        
                     </div>
                 </div>
             </div>
