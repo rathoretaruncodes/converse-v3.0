@@ -1,4 +1,4 @@
-interface messageType {
+type messageType = {
     id: number;
     fromMe: boolean;
     body: string;

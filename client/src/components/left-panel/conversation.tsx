@@ -1,4 +1,4 @@
-interface conversationType {
+type conversationType = {
     id: number;
     profilePicture: string;
     fullName: string;
